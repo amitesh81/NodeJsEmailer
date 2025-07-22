@@ -47,7 +47,16 @@ class EmailerApp {
     // Send email directly (for testing)
     app.post('/send-email', async (req, res) => {
       try {
+        console.log('📨 Received request body:', req.body);
         const { to, subject, template, data, ...options } = req.body;
+        
+        // Validate required fields
+        if (!to) {
+          return res.status(400).json({ success: false, error: 'Missing required field: to' });
+        }
+        if (!subject) {
+          return res.status(400).json({ success: false, error: 'Missing required field: subject' });
+        }
         
         let result;
         if (template) {
@@ -62,6 +71,7 @@ class EmailerApp {
         
         res.json({ success: true, messageId: result.messageId });
       } catch (error) {
+        console.error('❌ API Error:', error);
         res.status(500).json({ success: false, error: error.message });
       }
     });

@@ -5,52 +5,21 @@ require('dotenv').config();
 /**
  * Test script to demonstrate email functionality
  */
-async function testDirectEmail() {
-  console.log('🧪 Testing direct email sending...');
-  
-  try {
-    // Test templated email
-    await emailService.sendTemplatedEmail({
-      to: 'test@example.com',
-      subject: 'Welcome Test Email',
-      template: 'welcome',
-      data: {
-        name: 'Test User',
-        message: 'This is a test welcome email sent directly.',
-        actionUrl: 'https://example.com/activate',
-        actionText: 'Activate Account'
-      }
-    });
-    
-    console.log('✅ Direct templated email test completed');
-  } catch (error) {
-    console.error('❌ Direct email test failed:', error.message);
-  }
-}
+
 
 async function testKafkaEmail() {
   console.log('🧪 Testing Kafka email queue...');
   
   try {
-    // Test email via Kafka
+    // Test email via Kafka using case-notification template
     await kafkaProducer.sendEmailNotification({
       id: 'test-kafka-001',
-      to: 'test@example.com',
-      subject: 'Kafka Test Notification',
-      template: 'notification',
+      to: 'jha.amitesh@gmail.com',
+      subject: 'Kafka Case Notification Test',
+      template: 'case-notification',
       data: {
-        title: 'System Notification',
-        recipientName: 'Test User',
-        message: 'This email was sent via Kafka message queue.',
-        isUrgent: true,
-        details: [
-          'Message processed through Kafka',
-          'Template rendered with Handlebars',
-          'Sent via Nodemailer'
-        ],
-        nextSteps: 'No action required - this is just a test.',
-        senderName: 'System Administrator',
-        timestamp: new Date().toLocaleString()
+        caseNumber: '22AC-KAFKA001',
+        caseTitle: 'Kafka Test Case Notification'
       }
     });
     
@@ -65,7 +34,7 @@ async function testPlainEmail() {
   
   try {
     await emailService.sendEmail({
-      to: 'test@example.com',
+      to: 'jha.amitesh@gmail.com',
       subject: 'Plain Text Test',
       text: 'This is a plain text email without templates.',
       html: '<p>This is a <strong>plain HTML email</strong> without templates.</p>'

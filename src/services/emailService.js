@@ -34,6 +34,13 @@ class EmailService {
     try {
       const { to, subject, template, data, from } = options;
       
+      // Debug logging
+      console.log('📧 Sending templated email with options:', { to, subject, template, from: from || process.env.EMAIL_USER });
+      
+      if (!to) {
+        throw new Error('No recipient email address provided');
+      }
+      
       const htmlContent = await this.renderTemplate(template, data);
       
       const mailOptions = {
@@ -58,6 +65,13 @@ class EmailService {
   async sendEmail(options) {
     try {
       const { to, subject, text, html, from } = options;
+      
+      // Debug logging
+      console.log('📧 Sending plain email with options:', { to, subject, from: from || process.env.EMAIL_USER });
+      
+      if (!to) {
+        throw new Error('No recipient email address provided');
+      }
       
       const mailOptions = {
         from: from || process.env.EMAIL_USER,

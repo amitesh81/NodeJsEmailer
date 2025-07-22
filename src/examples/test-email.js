@@ -14,7 +14,7 @@ async function testKafkaEmail() {
     // Test email via Kafka using case-notification template
     await kafkaProducer.sendEmailNotification({
       id: 'test-kafka-001',
-      to: 'jha.amitesh@gmail.com',
+      to: 'exampleh@gmail.com',
       subject: 'Kafka Case Notification Test',
       template: 'case-notification',
       data: {
@@ -34,7 +34,7 @@ async function testPlainEmail() {
   
   try {
     await emailService.sendEmail({
-      to: 'jha.amitesh@gmail.com',
+      to: 'example@gmail.com',
       subject: 'Plain Text Test',
       text: 'This is a plain text email without templates.',
       html: '<p>This is a <strong>plain HTML email</strong> without templates.</p>'

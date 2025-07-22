@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Notification - Missouri Judiciary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            border-bottom: 3px solid #1f4788;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            color: #1f4788;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .case-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #1f4788;
+            margin: 20px 0;
+        }
+        .case-number {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1f4788;
+            margin-bottom: 10px;
+        }
+        .case-title {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .notification-text {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #e3f2fd;
+            border-radius: 5px;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 12px;
+            color: #666;
+        }
+        .link {
+            color: #1f4788;
+            text-decoration: none;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">Missouri Judiciary</div>
+            <div>Case.net Notification System</div>
+        </div>
+        
+        <div class="notification-text">
+            <p>You are receiving this e-mail because you signed up to track case number 
+            <strong>{{caseNumber}}</strong> - {{caseTitle}} through the Missouri Judiciary's Case.net.</p>
+        </div>        
+    </div>
+</body>
+</html>

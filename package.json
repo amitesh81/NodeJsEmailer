@@ -1,0 +1,40 @@
+{
+  "name": "nodejs-emailer",
+  "version": "1.0.0",
+  "description": "Node.js Email Service with Nodemailer + Handlebars + Kafka integration",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "producer": "node src/kafka/producer.js",
+    "consumer": "node src/kafka/consumer.js",
+    "test-email": "node src/examples/test-email.js"
+  },
+  "keywords": [
+    "nodemailer",
+    "handlebars",
+    "kafka",
+    "email",
+    "messaging"
+  ],
+  "author": "amitesh81",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amitesh81/NodeJsEmailer.git"
+  },
+  "homepage": "https://github.com/amitesh81/NodeJsEmailer#readme",
+  "bugs": {
+    "url": "https://github.com/amitesh81/NodeJsEmailer/issues"
+  },
+  "dependencies": {
+    "kafkajs": "^2.2.4",
+    "nodemailer": "^6.9.8",
+    "handlebars": "^4.7.8",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
